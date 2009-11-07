@@ -1,0 +1,14 @@
+CameraForm
+==========
+Attempt at creating an open source library for webcam capture of a static image that gets submitted via a form.
+
+Functional Spec
+---------------
+TODO
+
+Parameters
+----------
+* size(w=320,h=240)
+  The size of the Camera portal.
+* capture_size(w=320,h=240)
+  The size of the resulting image to be stored.
