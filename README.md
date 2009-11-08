@@ -6,22 +6,6 @@ The idea being that developers wont have to mess around with evil Flash/AS thems
 
 Obviously what would be more ideal would be browser support for [`<input type=camera>`](http://ajaxian.com/archives/input-camera) but that was apparently nixed from the HTML5 spec, so for now, this.
 
-Functional Spec
----------------
-1. Instantiate.
-1. Capture.
-1. Recapture / Submit.
-1. ExternalInterface hooks for JS control.
-
-Parameters
-----------
-Parameters that should be able to be passed from the HTML instantiation.
-
-* `size(w=320,h=240)`
-  The size of the Camera portal.
-* `capture_size(w=320,h=240)`
-  The size of the resulting image to be stored.
-* `countdown(boolean=true)`
-  Whether or not to have a 3,2,1 countdown before capture.
-* `show_buttons(boolean=true)`
-  Whether or not to have visible capture buttons in the frame.
+This is forked from 
+* Adding support for getting back the JPEG as a base64 encoded string, so you can submit it via a standard HTML form after you insert the value via Javascript.  This makes it much more flexible for usage in web apps.
+* Putting it on github, since github is awesome and allows for easier collaboration.
