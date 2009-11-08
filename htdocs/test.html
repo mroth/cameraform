@@ -4,28 +4,25 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>JPEGCam Test Page 2</title>
-	<meta name="generator" content="TextMate http://macromates.com/">
-	<meta name="author" content="Joseph Huckaby">
-	<!-- Date: 2008-03-15 -->
+	<title>CameraForm Test Page</title>
 </head>
 <body>
 
-	<h1>JPEGCam Test Page 3</h1>
+	<h1>CameraForm Test Page</h1>
 	<h3>Demonstrates a dump implementation: capture, then return value for upload.</h3>
 	
-	<!-- First, include the JPEGCam JavaScript Library -->
+	<!-- First, include the JavaScript Library -->
 	<script type="text/javascript" src="webcam.js"></script>
 	
 	<!-- Configure a few settings -->
 	<script language="JavaScript">
-		webcam.set_api_url( 'test.php' );
 		webcam.set_quality( 90 ); // JPEG quality (1 - 100)
 		webcam.set_shutter_sound( true ); // play shutter click sound
 	</script>
 
 	<table><tr><td valign=top>
-	<!-- Next, write the movie to the page at 320x240 -->
+		
+	<!-- Write the movie to the page at 320x240 -->
 	<script language="JavaScript">
 		document.write( webcam.get_html(320, 240) );
 	</script>
