@@ -9,7 +9,9 @@
 <body>
 
 	<h1>CameraForm Test Page</h1>
-	<h3>Demonstrates a dump implementation: capture, then return value for upload.</h3>
+	<p><strong>Demonstrates a webcam implementation: capture an image, then insert it into a form.  This all happens on the client side, no server involved.</strong><br/>
+	For comparison sake of what this is replacing, take a look at: <a href="http://bowser.macminicolo.net/~jhuckaby/jpegcam/test2.html">jpegcam test</a>
+	</p>
 	
 	<!-- First, include the JavaScript Library -->
 	<script type="text/javascript" src="webcam.js"></script>
@@ -31,38 +33,49 @@
 	<br/><form>
 		<input type=button value="Configure..." onClick="webcam.configure()">
 		&nbsp;&nbsp;
-		<input type=button value="Capture" onClick="webcam.freeze()">
+		<input id="capture_button" type=button value="Capture" onClick="do_capture()">
 		&nbsp;&nbsp;
-		<input type=button value="Dump" onClick="do_upload()">
+		<input id="dump_button" type=button value="Insert" onClick="do_dump()" disabled="true">
 		&nbsp;&nbsp;
-		<input type=button value="Reset" onClick="webcam.reset()">
+		<input type=button value="Reset" onClick="do_reset()">
 	</form>
 	
 	<!-- Code to handle the server response (see test.php) -->
 	<script language="JavaScript">
 		webcam.set_hook( 'onComplete', 'my_completion_handler' );
 		
-		function do_upload() {
-			// upload to server
-			//document.getElementById('upload_results').innerHTML = '<h1>Uploading...</h1>';
-			// webcam.upload();
+		function do_capture() {
+			webcam.freeze();
+			document.getElementById('capture_button').disabled = true;
+			document.getElementById('dump_button').disabled = false;
+		}
+		
+		function do_dump() {
 			webcam.dump();
+		}
+		
+		function do_reset() {
+			webcam.reset();
+			document.getElementById('capture_button').disabled = false;
+			document.getElementById('dump_button').disabled = true;
 		}
 		
 		function my_completion_handler(base64) {
 			var p = document.getElementById('preview');
 			p.src = 'data:image/jpeg;base64,' + base64;
 			document.getElementById('img_data').value = base64;
-			webcam.reset();
+			document.getElementById('submit_button').disabled = false;
+			do_reset();
 		}
 	</script>
 	
 	</td><td width=50>&nbsp;</td><td valign=top>
 		<div id="upload_results" style="background-color:#eee;">
-			preview image:<br/>
+			form preview image:<br/>
 			<img id="preview" src="#"><br/>
-			base64 encoded string:<br/>
+			base64 encoded string as form value:<br/>
 			<textarea style="width:320px;" id='img_data' name='img_data'></textarea>
+			<br/><br/><input type='submit' id='submit_button' value='submit form' onClick="alert('i could be submitting your data!');" disabled='true'>
 		</div>
 	</td></tr></table>
 </body>
