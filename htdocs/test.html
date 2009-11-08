@@ -1,17 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>CameraForm Test Page</title>
+	
+	<style type="text/css">
+		body {
+	  		margin-top: 1.0em;
+	  		background-color: #fff;
+			font-family: "Helvetica,Arial,FreeSans"; 
+	  		color: #666;
+	    }
+	    #container {
+	      margin: 0 auto;
+	      width: 700px;
+	    }
+			h1 { font-size: 3.8em; color: #75c3f9; margin-bottom: 3px; }
+			h1 .small { font-size: 0.4em; }
+			h1 a { text-decoration: none }
+			h2 { font-size: 1.5em; color: #75c3f9; }
+	    h3 { text-align: center; color: #75c3f9; }
+	    a { color: #75c3f9; }
+	    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+	    .download { float: right; }
+			pre { background: #000; color: #fff; padding: 15px;}
+	    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+	    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	</style>
 </head>
 <body>
+  <a href="http://github.com/mroth/cameraform"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-	<h1>CameraForm Test Page</h1>
-	<p><strong>Demonstrates a webcam implementation: capture an image, then insert it into a form.  This all happens on the client side, no server involved.</strong><br/>
+  <div id="container">
+	<div class="download">
+      <a href="http://github.com/mroth/cameraform/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/mroth/cameraform/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+	<h1>cameraform demo</h1>
+	
+	<div class="description">
+	<strong>Demonstrates a webcam implementation: capture an image, then insert it into a form.  This all happens on the client side, no server involved.</strong><br/>
 	For comparison sake of what this is replacing, take a look at: <a href="http://bowser.macminicolo.net/~jhuckaby/jpegcam/test2.html">jpegcam test</a>
-	</p>
+	</div>
 	
 	<!-- First, include the JavaScript Library -->
 	<script type="text/javascript" src="webcam.js"></script>
@@ -71,12 +106,18 @@
 	
 	</td><td width=50>&nbsp;</td><td valign=top>
 		<div id="upload_results" style="background-color:#eee;">
-			form preview image:<br/>
+			<small>form preview image:</small><br/>
 			<img id="preview" src="#"><br/>
-			base64 encoded string as form value:<br/>
+			<small>base64 encoded string as form value:</small><br/>
 			<textarea style="width:320px;" id='img_data' name='img_data'></textarea>
-			<br/><br/><input type='submit' id='submit_button' value='submit form' onClick="alert('i could be submitting your data!');" disabled='true'>
+			<br/><br/><input type='submit' id='submit_button' value='submit form' onClick="alert('I could be submitting your data via a form right now!');" disabled='true'>
 		</div>
 	</td></tr></table>
+	
+	<div class="footer">
+      get the source code on GitHub : <a href="http://github.com/mroth/cameraform">mroth/cameraform</a>
+    </div>
+
+	</div>
 </body>
 </html>
