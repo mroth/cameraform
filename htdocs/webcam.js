@@ -1,24 +1,14 @@
-/* JPEGCam v1.0.8 */
-/* Webcam library for capturing JPEG images and submitting to a server */
+/* CameraForm - http://github.com/mroth/cameraform/ */
+
+/* CameraForm is based largely on JPEGCam v1.0.8 */
 /* Copyright (c) 2008 - 2009 Joseph Huckaby <jhuckaby@goldcartridge.com> */
 /* Licensed under the GNU Lesser Public License */
 /* http://www.gnu.org/licenses/lgpl.html */
 
-/* Usage:
-	<script language="JavaScript">
-		document.write( webcam.get_html(320, 240) );
-		webcam.set_api_url( 'test.php' );
-		webcam.set_hook( 'onComplete', 'my_callback_function' );
-		function my_callback_function(response) {
-			alert("Success! PHP returned: " + response);
-		}
-	</script>
-	<a href="javascript:void(webcam.snap())">Take Snapshot</a>
-*/
 
 // Everything is under a 'webcam' Namespace
 window.webcam = {
-	version: '1.0.8',
+	version: '1.1.0',
 	
 	// globals
 	ie: !!navigator.userAgent.match(/MSIE/),
