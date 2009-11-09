@@ -19,4 +19,39 @@ As per the parent project, it is licensed under LGPL license terms.
 
 Usage
 -----
-TODO: write me
+For now, look at the [jpegcam documentation](http://code.google.com/p/jpegcam/wiki/Instructions) for basic setup stuff.
+
+*The main difference here is that once you `freeze()` the image, instead of calling `upload()`, you can call `dump()` instead, which will return a base64 encoded JPEG to the callback handler.*
+
+Once you get the return value in the callback, you can just stick it in a hidden form value:
+	
+	<form onSubmit='doSomething();'>
+		<!-- your other form stuff here -->
+		<input type='hidden' id='img_data'>
+		<input type='submit' id='submit_button' disabled='true'>
+	</form>
+	<script language="JavaScript">
+		webcam.set_hook( 'onComplete', 'completion_handler' );
+	
+		function completion_handler(data) {
+			document.getElementById('img_data').value = data;
+			document.getElementById('submit_button').disabled = false;
+		}
+	</script>
+
+I'm assuming you already know what to do with a form!
+
+You can even preview it by writing a data-uri into the src of an image.  Assuming we have an image with `id=preview`, then:
+
+	var p = document.getElementById('preview');
+	p.src = 'data:image/jpeg;base64,' + data;
+
+Fun for the whole family.
+
+Demo
+----
+Probably easiest to just look at the source code on [the demo page](http://mroth.github.com/cameraform/htdocs/test.html).
+
+License
+-------
+LGPL
